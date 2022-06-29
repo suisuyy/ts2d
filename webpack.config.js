@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/main.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'main.js'
     },
     module: {
         rules: [
@@ -12,9 +12,10 @@ module.exports = {
                 test: /\.ts$/,
                 use: 'ts-loader'
             }
-    
+
         ],
     },
+    resolve: { extensions: ['.ts', '.js'] },   //make webpack look for ts files
     mode: 'development',
     devServer: {
         static: path.resolve(__dirname, 'dist'),
